@@ -2,6 +2,7 @@ import 'package:json_sample/models/post.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteService {
+  // ignore: body_might_complete_normally_nullable
   Future<List<Post>?> getPosts() async {
     var client = http.Client();
 
