@@ -4,7 +4,9 @@
 
 ・　9/12 JSON形式のデータをListViewで表示成功
 
-・　9/15 
+・　9/15 　JSONデータよりUserListの表示成功
+
+・9/16 Drowerの設定
 
 [参考資料]
 
