@@ -1,18 +1,18 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:json_sample/models/post.dart';
-import 'package:json_sample/services/remote_service.dart';
+import 'package:json_sample/models/user.dart';
+import 'package:json_sample/services/remote_service_users.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class UserHomePage extends StatefulWidget {
+  const UserHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<UserHomePage> createState() => _UserHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  List<Post>? posts;
+class _UserHomePageState extends State<UserHomePage> {
+  List<Users>? users;
   var isLoaded = false;
 
   @override
@@ -24,8 +24,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() async {
-    posts = await RemoteService().getPosts();
-    if (posts != null) {
+    users = await RemoteServiceUsers().getUsers();
+    if (users != null) {
       setState(() {
         isLoaded = true;
       });
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         visible: isLoaded,
         // ignore: sort_child_properties_last
         child: ListView.builder(
-          itemCount: posts?.length,
+          itemCount: users?.length,
           itemBuilder: (context, index) {
             return Container(
               padding: const EdgeInsets.all(16),
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          posts![index].title,
+                          users![index].name,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          posts![index].body ?? '',
+                          users![index].username,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),

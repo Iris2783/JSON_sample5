@@ -1,10 +1,9 @@
+import 'package:json_sample/models/user.dart';
 import 'package:http/http.dart' as http;
-import 'package:json_sample/models/users.dart';
-
 
 class RemoteServiceUsers {
   // ignore: body_might_complete_normally_nullable
-  Future<List<Users>?> getPosts() async {
+  Future<List<Users>?> getUsers() async {
     var client = http.Client();
 
     var uri = Uri.parse('https://jsonplaceholder.typicode.com/users');
