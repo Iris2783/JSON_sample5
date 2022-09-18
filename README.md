@@ -2,11 +2,13 @@
 
 [履歴]
 
-・　9/12 JSON形式のデータをListViewで表示成功
+・　9/12　　JSON形式のデータをListViewで表示成功
 
-・　9/15 　JSONデータよりUserListの表示成功
+・　9/15　　JSONデータよりUserListの表示成功
 
-・9/16 Drowerの設定
+・　9/18　　Drawerの設定
+
+・　9/19 レスポンジブデザインの実装
 
 [参考資料]
 
