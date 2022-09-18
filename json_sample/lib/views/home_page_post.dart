@@ -36,7 +36,7 @@ class _PostHomePageState extends State<PostHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posts'),
+        title: Text('Post'),
       ),
       body: Visibility(
         visible: isLoaded,

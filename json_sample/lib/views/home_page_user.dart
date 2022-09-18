@@ -36,7 +36,7 @@ class _UserHomePageState extends State<UserHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posts'),
+        title: Text('User'),
       ),
       body: Visibility(
         visible: isLoaded,
