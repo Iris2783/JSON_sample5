@@ -8,8 +8,6 @@
 
 ・　9/18　　Drawerの設定
 
-・　9/19　　レスポンシブ対応
-
 [参考資料]
 
 Youtube : https://www.youtube.com/watch?v=c09XiwOZKsI
