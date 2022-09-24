@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../views/home_page_post.dart';
 import '../views/home_page_user.dart';
-import '../views/home_page_user_v2.dart';
 
 class MyDrawerList extends StatefulWidget {
   const MyDrawerList({super.key});

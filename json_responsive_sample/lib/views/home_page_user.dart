@@ -13,13 +13,14 @@ class UserHomePage extends StatefulWidget {
 }
 
 class _UserHomePageState extends State<UserHomePage> {
-  List<Users>? users;
-  var isLoaded = false;
+  List<Users>? users;//空のList・usersを作成。
+  var isLoaded = false;//この時点ではデータバインドしないでね。(データを取り込まないでね・取り込むことをフェッチという)
+
+  //データバインド：XML ファイルなどのデータ ソースからのデータのフェッチ、またはデータ ソースへのデータの書き込みを行うように、フォームまたは Web ページ上のコントロールを構成するためのプロセスまたはメソッド。
 
   @override
   void initState() {
     super.initState();
-
     //fetch data from API
     getData();
   }
@@ -55,7 +56,7 @@ class _UserHomePageState extends State<UserHomePage> {
                       width: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey[300],
+                        color: Colors.grey[300],//ここにイメージを表示する記述をすれば画像が表示される
                       ),
                     ),
                     SizedBox(width: 20),
@@ -85,7 +86,7 @@ class _UserHomePageState extends State<UserHomePage> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const UserDetail(),
+                      builder: (context) => const UserDetailPage(),
                     ),
                   );
                 },

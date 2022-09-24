@@ -1,20 +1,41 @@
 import 'package:flutter/material.dart';
 
-class UserDetail extends StatefulWidget {
-  const UserDetail({super.key});
+import '../models/user.dart';
+import '../services/remote_service_users.dart';
+
+class UserDetailPage extends StatefulWidget {
+  const UserDetailPage({super.key});
 
   @override
-  State<UserDetail> createState() => _UserDetailState();
+  State<UserDetailPage> createState() => _UserDetailPageState();
 }
 
-class _UserDetailState extends State<UserDetail> {
+class _UserDetailPageState extends State<UserDetailPage> {
+ List<Users>? users;
+  var isLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    //fetch data from API
+    getData();
+  }
+
+  getData() async {
+    users = await RemoteServiceUsers().getUsers();
+    if (users != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Detail'),
+        title: const Text('User Detail'),
       ),
-      
     );
   }
 }
