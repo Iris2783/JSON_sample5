@@ -13,18 +13,16 @@ class UserHomePage extends StatefulWidget {
 }
 
 class _UserHomePageState extends State<UserHomePage> {
-  List<Users>? users;//空のList・usersを作成。
-  var isLoaded = false;//この時点ではデータバインドしないでね。(データを取り込まないでね・取り込むことをフェッチという)
-
-  //データバインド：JSONファイルなどのデータソースからのデータのフェッチ、またはデータソースへのデータの書き込みを行うように、フォームまたは Webページ上のコントロールを構成するためのプロセスまたはメソッド。
+  List<Users>? users; 
+  var isLoaded = false; 
 
   @override
   void initState() {
     super.initState();
     //fetch data from API
     getData();
-  }//ウィジェットが作成された時点でgetDataの処理を行うようにしてね。
-
+  }
+  
   Future getData() async {
     users = await RemoteServiceUsers().getUsers();
     if (users != null) {
@@ -33,7 +31,7 @@ class _UserHomePageState extends State<UserHomePage> {
       });
     }
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +54,7 @@ class _UserHomePageState extends State<UserHomePage> {
                       width: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey[300],//ここにイメージを表示する記述をすれば画像が表示される
+                        color: Colors.grey[300], 
                       ),
                     ),
                     SizedBox(width: 20),
@@ -66,8 +64,9 @@ class _UserHomePageState extends State<UserHomePage> {
                         children: [
                           Text(
                             users![index].name,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2, 
+                            overflow: TextOverflow
+                                .ellipsis, 
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -86,7 +85,7 @@ class _UserHomePageState extends State<UserHomePage> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const UserDetailPage(),
+                      builder: (context) => UserDetailPage(),
                     ),
                   );
                 },

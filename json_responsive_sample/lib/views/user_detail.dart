@@ -13,6 +13,8 @@ class _UserDetailPageState extends State<UserDetailPage> {
   List<Users>? users;
   var isLoaded = false;
 
+  get index => users![index];
+
   @override
   void initState() {
     super.initState();
@@ -50,7 +52,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  (users![index].id.toString()),
+                  users![index].id.toString(),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
