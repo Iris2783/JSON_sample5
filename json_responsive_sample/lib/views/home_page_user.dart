@@ -16,16 +16,16 @@ class _UserHomePageState extends State<UserHomePage> {
   List<Users>? users;//空のList・usersを作成。
   var isLoaded = false;//この時点ではデータバインドしないでね。(データを取り込まないでね・取り込むことをフェッチという)
 
-  //データバインド：XML ファイルなどのデータ ソースからのデータのフェッチ、またはデータ ソースへのデータの書き込みを行うように、フォームまたは Web ページ上のコントロールを構成するためのプロセスまたはメソッド。
+  //データバインド：JSONファイルなどのデータソースからのデータのフェッチ、またはデータソースへのデータの書き込みを行うように、フォームまたは Webページ上のコントロールを構成するためのプロセスまたはメソッド。
 
   @override
   void initState() {
     super.initState();
     //fetch data from API
     getData();
-  }
+  }//ウィジェットが作成された時点でgetDataの処理を行うようにしてね。
 
-  getData() async {
+  Future getData() async {
     users = await RemoteServiceUsers().getUsers();
     if (users != null) {
       setState(() {

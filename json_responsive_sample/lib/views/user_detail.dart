@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/user.dart';
 import '../services/remote_service_users.dart';
 
@@ -11,7 +10,7 @@ class UserDetailPage extends StatefulWidget {
 }
 
 class _UserDetailPageState extends State<UserDetailPage> {
- List<Users>? users;
+  List<Users>? users;
   var isLoaded = false;
 
   @override
@@ -35,6 +34,30 @@ class _UserDetailPageState extends State<UserDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('User Detail'),
+      ),
+      body: Row(
+        children: [
+          Container(
+            height: 150,
+            width: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  (users![index].id.toString()),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
