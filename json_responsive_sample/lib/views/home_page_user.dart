@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:json_sample/services/remote_service_users.dart';
-
+import 'package:json_sample/views/user_detail.dart';
 
 class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
@@ -63,7 +63,16 @@ class _UserHomePageState extends State<UserHomePage> {
                           ),
                         ],
                       ),
-                      // onTap
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UserDetailPage(
+                              snapshot.data[index],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
