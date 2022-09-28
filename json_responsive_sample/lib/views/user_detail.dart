@@ -26,11 +26,34 @@ class UserDetailPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.green,
-              )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 120.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text('ID :'),
+                        const SizedBox(width: 10),
+                        Text(users.id.toString()),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 120.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text('Name :'),
+                        const SizedBox(width: 10),
+                        Text(users.name),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
