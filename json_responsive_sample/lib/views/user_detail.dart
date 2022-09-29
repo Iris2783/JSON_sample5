@@ -52,6 +52,30 @@ class UserDetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 120.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text('City :'),
+                        const SizedBox(width: 10),
+                        Text(users.address.city),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 120.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text('Company :'),
+                        const SizedBox(width: 10),
+                        Text(users.company.name),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ],
