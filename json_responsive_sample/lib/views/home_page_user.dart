@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:json_sample/services/remote_service_users.dart';
-import 'package:json_sample/views/user_detail.dart';
+import 'package:json_sample/details/user_detail.dart';
 
 class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
@@ -84,8 +84,10 @@ class _UserHomePageState extends State<UserHomePage> {
                 ),
               );
             } else {
-              return Container(
-                child: CircularProgressIndicator(),
+              return Center(
+                child: Container(
+                  child: CircularProgressIndicator(),
+                ),
               );
             }
           },

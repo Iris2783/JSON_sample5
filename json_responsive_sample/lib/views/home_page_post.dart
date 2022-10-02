@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:json_sample/models/post.dart';
-import 'package:json_sample/services/remote_service_post.dart';
+import 'package:json_sample/services/remote_service_posts.dart';
+import '../details/post_detail.dart';
 
 class PostHomePage extends StatefulWidget {
   const PostHomePage({super.key});
@@ -12,79 +12,85 @@ class PostHomePage extends StatefulWidget {
 }
 
 class _PostHomePageState extends State<PostHomePage> {
-  List<Post>? posts;
-  var isLoaded = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    //fetch data from API
-    getData();
-  }
-
-  getData() async {
-    posts = await RemoteService().getPosts();
-    if (posts != null) {
-      setState(() {
-        isLoaded = true;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Post'),
       ),
-      body: Visibility(
-        visible: isLoaded,
-        // ignore: sort_child_properties_last
-        child: ListView.builder(
-          itemCount: posts?.length,
-          itemBuilder: (context, index) {
-            return Container(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.grey[300],
-                    ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          posts![index].title,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+      body: Container(
+        child: FutureBuilder(
+          future: fetchPosts(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    padding: const EdgeInsets.all(10),
+                    child: ListTile(
+                      title: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.grey[300],
+                            ),
                           ),
-                        ),
-                        Text(
-                          posts![index].body ?? '',
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                          SizedBox(width: 20),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  snapshot.data[index].title,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  snapshot.data[index].body ?? '',
+                                  maxLines: 10,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PostDetailPage(
+                              snapshot.data[index],
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                ],
-              ),
-            );
+                  );
+                },
+              );
+            } else if (snapshot.hasError) {
+              return Container(
+                child: Center(
+                  child: Text('Not Found Data'),
+                ),
+              );
+            } else {
+              return Center(
+                child: Container(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
           },
-        ),
-        replacement: Container(
-          child: CircularProgressIndicator(),
         ),
       ),
     );

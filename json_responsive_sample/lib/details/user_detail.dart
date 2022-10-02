@@ -25,16 +25,19 @@ class UserDetailPage extends StatelessWidget {
                   color: Colors.green[300],
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 40),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 120.0),
+                    padding: const EdgeInsets.only(left: 100.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Text('ID :'),
+                        const Text(
+                          'ID :',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         const SizedBox(width: 10),
                         Text(users.id.toString()),
                       ],
@@ -42,11 +45,14 @@ class UserDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(left: 120.0),
+                    padding: const EdgeInsets.only(left: 100.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Text('Name :'),
+                        const Text(
+                          'Name :',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         const SizedBox(width: 10),
                         Text(users.name),
                       ],
@@ -54,11 +60,44 @@ class UserDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(left: 120.0),
+                    padding: const EdgeInsets.only(left: 100.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Text('City :'),
+                        const Text(
+                          'Email :',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(width: 10),
+                        Text(users.email),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Phone :',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(width: 10),
+                        Text(users.phone),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'City :',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         const SizedBox(width: 10),
                         Text(users.address.city),
                       ],
@@ -66,11 +105,14 @@ class UserDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(left: 120.0),
+                    padding: const EdgeInsets.only(left: 100.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Text('Company :'),
+                        const Text(
+                          'Company :',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         const SizedBox(width: 10),
                         Text(users.company.name),
                       ],
