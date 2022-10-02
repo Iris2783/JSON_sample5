@@ -10,6 +10,8 @@
 
 ・　10/1　　FutureBuilderの実装およびページ遷移、遷移先でのJSONデータの呼び出し完了
 
+・　10/2　　User詳細ページ作成完了
+
 [参考資料]
 
 Youtube : https://www.youtube.com/watch?v=c09XiwOZKsI
