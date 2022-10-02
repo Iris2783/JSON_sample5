@@ -35,3 +35,5 @@ HTTP Getエラー : https://zenn.dev/kokopi/articles/61e0d52c60b2f6
 .DS_Storeとは : https://ios-docs.dev/ds_store/
 
 FutureBuilder : https://qiita.com/ysknsn/items/76c6326c74dc9059ff20
+
+文字の見切れ修正　　: https://www.youtube.com/watch?v=3VvxU4EL51M
