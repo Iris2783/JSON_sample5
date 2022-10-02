@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:json_sample/services/remote_service_users.dart';
-import 'package:json_sample/details/user_detail.dart';
+import 'package:json_sample/details/user_details.dart';
 
 class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});

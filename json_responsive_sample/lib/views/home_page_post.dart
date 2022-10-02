@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:json_sample/services/remote_service_posts.dart';
-import '../details/post_detail.dart';
+import '../details/post_details.dart';
 
 class PostHomePage extends StatefulWidget {
   const PostHomePage({super.key});
